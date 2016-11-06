@@ -6,7 +6,7 @@
 Name:           timekpr
 # Ubuntu version 0.3.6~ppa1~ubuntu11
 Version:        0.3.6
-Release:        6.0
+Release:        6.2
 Summary:        Keep control of computer usage
 
 Group:    System Environment/Daemons
@@ -22,6 +22,8 @@ Source2:  timekpr.postinst
 Source3:  timekpr.postrm
 Source4:  timekpr.pam
 Source5:  timekpr.appdata.xml
+Source6:  timekpr-gui-run
+Source7:  org.freedesktop.policykit.pkexec.timekpr.policy
 
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 
@@ -85,6 +87,7 @@ rm -rf $RPM_BUILD_ROOT
 %__mkdir_p %{buildroot}%{_datadir}/applications/
 %__mkdir_p %{buildroot}%{_datadir}/locale/
 %__mkdir_p %{buildroot}%{_datadir}/pixmaps/
+%__mkdir_p %{buildroot}%{_datadir}/polkit-1/actions/
 %__mkdir_p %{buildroot}/etc/xdg/autostart/
 %__mkdir_p %{buildroot}%{_sysconfdir}/%{name}/
 %__mkdir_p %{buildroot}%{_sysconfdir}/logrotate.d/
@@ -108,6 +111,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %__cp support/bin/timekpr %{buildroot}%{_bindir}
 %__cp support/bin/timekpr-gui %{buildroot}%{_bindir}
+%__cp %{SOURCE6} %{buildroot}%{_bindir}
 %__cp support/bin/timekpr-client %{buildroot}%{_bindir}
 %__cp support/bin/users.timekpr %{buildroot}%{_bindir}
 
@@ -128,6 +132,9 @@ rm -rf $RPM_BUILD_ROOT
 %__cp src/gui/timekpr.glade %{buildroot}%{_datadir}/%{name}/
 %__cp src/gui/about_dialog.ui %{buildroot}%{_datadir}/%{name}/
 %__cp src/gui/client.ui %{buildroot}%{_datadir}/%{name}/
+
+#PolKit policy
+%__cp %{SOURCE7} %{buildroot}%{_datadir}/polkit-1/actions/
 
 #Appdata file
 install -Dpm 0644 %{SOURCE5} \
@@ -171,6 +178,7 @@ appstream-util validate-relax --nonet \
 #chmod on bin (in source : timekpr-client is not exacutable, needed)
 chmod +x %{buildroot}%{_bindir}/timekpr
 chmod +x %{buildroot}%{_bindir}/timekpr-gui
+chmod +x %{buildroot}%{_bindir}/timekpr-gui-run
 chmod +x %{buildroot}%{_bindir}/timekpr-client
 
 %post
@@ -217,6 +225,7 @@ update-desktop-database &> /dev/null || :
 
 %{_bindir}/timekpr
 %{_bindir}/timekpr-gui
+%{_bindir}/timekpr-gui-run
 %{_bindir}/timekpr-client
 %{_bindir}/users.timekpr
 %dir %{_datadir}/py%{name}
@@ -231,6 +240,7 @@ update-desktop-database &> /dev/null || :
 %{_datadir}/locale/*/LC_MESSAGES/%{name}.mo
 %{_datadir}/locale/*/LC_MESSAGES/%{name}.po
 %{_datadir}/pixmaps/%{name}.xpm
+%{_datadir}/polkit-1/actions/org.freedesktop.policykit.pkexec.timekpr.policy
 %{_datadir}/man/man8/%{name}.8.gz
 %{_unitdir}/timekpr.service
 

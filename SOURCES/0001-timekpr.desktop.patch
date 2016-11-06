@@ -7,7 +7,7 @@ diff -up stable/debian/timekpr.desktop.origine stable/debian/timekpr.desktop
  Comment=Keep control of computer usage
 -Exec=pkexec /usr/bin/timekpr-gui
 -Icon=timekpr.xpm
-+Exec=beesu /usr/bin/timekpr-gui
++Exec=timekpr-gui
 +Icon=timekpr
  Terminal=false
  Type=Application
