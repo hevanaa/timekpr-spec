@@ -34,6 +34,7 @@ Patch4:         0005-timekpr-cleanup-users-list.patch
 BuildRequires:  python-devel
 BuildRequires:  desktop-file-utils
 BuildRequires:  gettext
+BuildRequires:  libappstream-glib
 BuildRequires:  systemd
 
 Requires:       python
