@@ -1,0 +1,56 @@
+diff -Naur stable/src/timekpr-client.py stable_new/src/timekpr-client.py
+--- stable/src/timekpr-client.py	2016-11-05 15:21:50.000000000 +0200
++++ stable_new/src/timekpr-client.py	2016-11-06 11:27:41.390995629 +0200
+@@ -55,8 +55,8 @@
+     from sys import path
+     path.append('.')
+ 
+-from common.timekprpam import *
+-from common.timekprcommon import *
++from timekprpam import *
++from timekprcommon import *
+ 
+ # timekpr.conf variables (dictionary variable)
+ VAR = getvariables(DEVACTIVE)
+diff -Naur stable/src/timekpr-gui3.py stable_new/src/timekpr-gui3.py
+--- stable/src/timekpr-gui3.py	2016-11-05 15:21:50.000000000 +0200
++++ stable_new/src/timekpr-gui3.py	2016-11-06 11:28:09.885827583 +0200
+@@ -25,8 +25,8 @@
+     from sys import path
+     path.append('.')
+ 
+-from common.timekprpam import *
+-from common.timekprcommon import *
++from timekprpam import *
++from timekprcommon import *
+ 
+ #timekpr.conf variables (dictionary variable)
+ VAR = getvariables(DEVACTIVE)
+diff -Naur stable/src/timekpr-gui.py stable_new/src/timekpr-gui.py
+--- stable/src/timekpr-gui.py	2016-11-05 15:21:50.000000000 +0200
++++ stable_new/src/timekpr-gui.py	2016-11-06 11:27:55.885910147 +0200
+@@ -38,8 +38,8 @@
+ if DEVACTIVE:
+     from sys import path
+     path.append('.')
+-from common.timekprpam import *
+-from common.timekprcommon import *
++from timekprpam import *
++from timekprcommon import *
+ 
+ #timekpr.conf variables (dictionary variable)
+ VAR = getvariables(DEVACTIVE)
+diff -Naur stable/src/timekpr.py stable_new/src/timekpr.py
+--- stable/src/timekpr.py	2016-11-05 15:21:50.000000000 +0200
++++ stable_new/src/timekpr.py	2016-11-06 11:27:29.759064227 +0200
+@@ -17,8 +17,8 @@
+ if DEVACTIVE:
+     from sys import path
+     path.append('.')
+-from common.timekprpam import * # timekprpam.py
+-from common.timekprcommon import * # timekprcommon.py
++from timekprpam import * # timekprpam.py
++from timekprcommon import * # timekprcommon.py
+ 
+ #timekpr.conf variables (dictionary variable)
+ VAR = getvariables(DEVACTIVE)

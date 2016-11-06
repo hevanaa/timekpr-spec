@@ -1,0 +1,17 @@
+diff -up stable/debian/timekpr.desktop.origine stable/debian/timekpr.desktop
+--- stable/src/launchers/timekpr.desktop.origine	2014-10-11 15:31:35.648733500 +0200
++++ stable/src/launchers/timekpr.desktop	2014-10-11 15:33:48.125314547 +0200
+@@ -3,10 +3,10 @@ Version=1.0
+ Encoding=UTF-8
+ Name=Timekpr Control Panel
+ Comment=Keep control of computer usage
+-Exec=pkexec /usr/bin/timekpr-gui
+-Icon=timekpr.xpm
++Exec=beesu /usr/bin/timekpr-gui
++Icon=timekpr
+ Terminal=false
+ Type=Application
+-Categories=System;Settings;GTK;
++Categories=System;Settings;
+ StartupNotify=true
+ X-Ubuntu-Gettext-Domain=timekpr

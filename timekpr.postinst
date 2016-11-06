@@ -1,0 +1,36 @@
+#!/bin/sh
+pamfiles=( '/etc/pam.d/login' '/etc/pam.d/gdm-password' '/etc/pam.d/gdm' '/etc/pam.d/kdm' '/etc/pam.d/lightdm' '/etc/pam.d/lxdm' '/etc/pam.d/mdm')
+tfile='/etc/security/time.conf'
+afile='/etc/security/access.conf'
+
+#Include timekpr to needed pam files
+for pamfile in "${pamfiles[@]}"
+do
+	if [ -e $pamfile ] ; then
+		x=$(grep -c '^account\s*include\s*timekpr' $pamfile)
+		if [ $x = 0 ] ; then
+			#Didn't find include - add it
+			sed -i -e '$s/$/\naccount    include    timekpr\n/' $pamfile
+			echo "Udated ${pamfile} to include timekpr"
+		fi
+	fi
+done
+
+#Prepare access.conf and time.conf in /etc/security/
+if [ ! -e $afile ] ; then
+  echo "" > $tfile
+fi
+x=$(grep -c "^##\? TIMEKPR START" $afile)
+if [ $x = 0 ] ; then
+	sed -i -e '$s/$/\n## TIMEKPR START\n## TIMEKPR END\n/' $afile
+fi
+
+if [ ! -e $tfile ] ; then
+  echo "" > $tfile
+fi
+x=$(grep -c "^##\? TIMEKPR START" $tfile)
+if [ $x = 0 ] ; then
+	sed -i -e '$s/$/\n## TIMEKPR START\n## TIMEKPR END\n/' $tfile
+fi
+
+

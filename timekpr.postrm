@@ -1,0 +1,27 @@
+ #!/bin/sh
+pamfiles=( '/etc/pam.d/login' '/etc/pam.d/gdm-password' '/etc/pam.d/gdm' '/etc/pam.d/kdm' '/etc/pam.d/lightdm' '/etc/pam.d/lxdm' '/etc/pam.d/mdm')
+afile='/etc/security/access.conf'
+tfile='/etc/security/time.conf'
+timekprwork=/var/lib/timekpr
+
+#Remove timekpr from pam.d files
+for pamfile in "${pamfiles[@]}"
+do
+	if [ -e $pamfile ] ; then
+		echo "Removing timekpr section from $pamfile"
+		sed -i -e '/^account\s*include\s*timekpr$/d' $pamfile
+	fi
+done
+
+#Remove timekpr part from access and time
+echo "Removing timekpr section from $afile"
+sed -i -e '/^### TIMEKPR START/,/^### TIMEKPR END/ s/^#//g' $afile
+sed -i -e '/^## TIMEKPR START/,/^## TIMEKPR END/d' $afile
+echo "Removing timekpr section from $tfile"
+sed -i -e '/^### TIMEKPR START/,/^### TIMEKPR END/ s/^#//g' $tfile
+sed -i -e '/^## TIMEKPR START/,/^## TIMEKPR END/d' $tfile
+
+#Remove timekpr work dir
+if [ -d $timekprwork ] ; then
+	rm -rf $timekprwork
+fi
