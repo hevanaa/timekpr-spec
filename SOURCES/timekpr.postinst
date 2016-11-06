@@ -18,7 +18,7 @@ done
 
 #Prepare access.conf and time.conf in /etc/security/
 if [ ! -e $afile ] ; then
-  echo "" > $tfile
+  echo "" > $afile
 fi
 x=$(grep -c "^##\? TIMEKPR START" $afile)
 if [ $x = 0 ] ; then
