@@ -5,3 +5,5 @@ timekpr source https://launchpad.net/timekpr-revived
 
 Spec and patches taken from http://www.shnoulle.net/timekpr-rpms/
 (spec changed to work with latest Fedora and latest version of timekpr)
+
+Rpm repository at https://copr.fedorainfracloud.org/coprs/johanh/timekpr/
