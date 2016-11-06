@@ -1,2 +1,4 @@
 # timekpr-spec
-spec file for building Fedora rpm of timekpr
+This is a spec file for building Fedora rpm of timekpr.
+
+timekpr source https://launchpad.net/timekpr-revived
