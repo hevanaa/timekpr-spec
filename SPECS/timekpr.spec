@@ -25,10 +25,11 @@ Source5:  timekpr.appdata.xml
 
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 
-Patch0:         0001-timekpr.desktop.diff
-Patch1:         0002-timekpr-client.desktop.diff
-Patch2:         0003-timekpr-pythondir.diff
-Patch3:         0004-timekpr-pythonfix.diff
+Patch0:         0001-timekpr.desktop.patch
+Patch1:         0002-timekpr-client.desktop.patch
+Patch2:         0003-timekpr-pythondir.patch
+Patch3:         0004-timekpr-pythonfix.patch
+Patch4:         0005-timekpr-cleanup-users-list.patch
 
 BuildRequires:  python-devel
 BuildRequires:  desktop-file-utils
