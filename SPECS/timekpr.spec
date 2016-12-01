@@ -6,7 +6,7 @@
 Name:           timekpr
 # Ubuntu version 0.3.6~ppa1~ubuntu11
 Version:        0.3.6
-Release:        6.2
+Release:        6.3%{?dist}
 Summary:        Keep control of computer usage
 
 Group:    System Environment/Daemons
@@ -43,7 +43,6 @@ Requires:       python
 Requires:       pygtk2-libglade
 Requires:       dbus-python
 Requires:       notify-python
-Requires:       beesu
 
 Requires(post): systemd
 Requires(post): sed
@@ -248,6 +247,8 @@ update-desktop-database &> /dev/null || :
 %{_sysconfdir}/%{name}/timekpr.postrm
 
 %changelog
+* Sun Nov 27 2016 johan.heikkila@gmail.com
+- Removed beesu dependence
 * Sun Nov 6 2016 johan.heikkila@gmail.com
 - Update to 3.6 for Fedora
 * Sat Oct 11 2014 denis@shnoulle.net
