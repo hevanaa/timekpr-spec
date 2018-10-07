@@ -1,9 +1,18 @@
-diff -Naur stable/src/timekpr-client.py stable_new/src/timekpr-client.py
---- stable/src/timekpr-client.py	2016-11-05 15:21:50.000000000 +0200
-+++ stable_new/src/timekpr-client.py	2016-11-06 11:27:41.390995629 +0200
-@@ -55,8 +55,8 @@
-     from sys import path
+diff -Naur stable.orig/src/common/timekprpam.py stable/src/common/timekprpam.py
+--- stable.orig/src/common/timekprpam.py	2018-10-07 01:49:40.435851000 +0300
++++ stable/src/common/timekprpam.py	2018-10-07 02:57:13.261278418 +0300
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/python3
+ """ A library timekpr uses to read/edit Linux-PAM configuration files.
+     Currently using modules: time, access
+     Warning: Not all Linux-PAM possibilities are supported!
+diff -Naur stable.orig/src/timekpr-client.py stable/src/timekpr-client.py
+--- stable.orig/src/timekpr-client.py	2018-10-07 01:49:40.435851000 +0300
++++ stable/src/timekpr-client.py	2018-10-07 02:59:56.331580616 +0300
+@@ -74,8 +74,8 @@
      path.append('.')
+     print("%s: development config" % ("main"))
  
 -from common.timekprpam import *
 -from common.timekprcommon import *
@@ -12,10 +21,29 @@ diff -Naur stable/src/timekpr-client.py stable_new/src/timekpr-client.py
  
  # timekpr.conf variables (dictionary variable)
  VAR = getvariables(DEVACTIVE)
-diff -Naur stable/src/timekpr-gui3.py stable_new/src/timekpr-gui3.py
---- stable/src/timekpr-gui3.py	2016-11-05 15:21:50.000000000 +0200
-+++ stable_new/src/timekpr-gui3.py	2016-11-06 11:28:09.885827583 +0200
-@@ -25,8 +25,8 @@
+diff -Naur stable.orig/src/timekpr-gui3.py stable/src/timekpr-gui3.py
+--- stable.orig/src/timekpr-gui3.py	2018-10-07 01:49:40.435851000 +0300
++++ stable/src/timekpr-gui3.py	2018-10-07 03:05:23.427180980 +0300
+@@ -1,15 +1,17 @@
+-#!/usr/bin/env python
++#!/usr/bin/python3
+ """ The graphical user interface for timekpr configuration.
+     Copyright / License: See COPYRIGHT.txt
+ """
+ 
+ import re
++import gi
+ from os import remove, mkdir, geteuid, getenv
+ from os.path import isdir, isfile, realpath, dirname, join
+ from time import strftime, sleep
+ from pwd import getpwnam
+ from spwd import getspall
+ 
++gi.require_version("Gtk", "3.0")
+ from gi.repository import Gtk
+ from gi.repository import GObject
+ 
+@@ -25,8 +27,8 @@
      from sys import path
      path.append('.')
  
@@ -26,9 +54,15 @@ diff -Naur stable/src/timekpr-gui3.py stable_new/src/timekpr-gui3.py
  
  #timekpr.conf variables (dictionary variable)
  VAR = getvariables(DEVACTIVE)
-diff -Naur stable/src/timekpr-gui.py stable_new/src/timekpr-gui.py
---- stable/src/timekpr-gui.py	2016-11-05 15:21:50.000000000 +0200
-+++ stable_new/src/timekpr-gui.py	2016-11-06 11:27:55.885910147 +0200
+diff -Naur stable.orig/src/timekpr-gui.py stable/src/timekpr-gui.py
+--- stable.orig/src/timekpr-gui.py	2018-10-07 01:49:40.435851000 +0300
++++ stable/src/timekpr-gui.py	2018-10-07 03:00:44.284375432 +0300
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/python3
+ """ The graphical user interface for timekpr configuration.
+     Copyright / License: See COPYRIGHT.txt
+ """
 @@ -38,8 +38,8 @@
  if DEVACTIVE:
      from sys import path
@@ -40,9 +74,15 @@ diff -Naur stable/src/timekpr-gui.py stable_new/src/timekpr-gui.py
  
  #timekpr.conf variables (dictionary variable)
  VAR = getvariables(DEVACTIVE)
-diff -Naur stable/src/timekpr.py stable_new/src/timekpr.py
---- stable/src/timekpr.py	2016-11-05 15:21:50.000000000 +0200
-+++ stable_new/src/timekpr.py	2016-11-06 11:27:29.759064227 +0200
+diff -Naur stable.orig/src/timekpr.py stable/src/timekpr.py
+--- stable.orig/src/timekpr.py	2018-10-07 01:49:40.435851000 +0300
++++ stable/src/timekpr.py	2018-10-07 03:00:59.204311599 +0300
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/python3
+ """ The "daemon service" for timekpr.
+     Copyright / License: See COPYRIGHT.txt
+ """
 @@ -17,8 +17,8 @@
  if DEVACTIVE:
      from sys import path

@@ -1,21 +1,21 @@
-diff -up stable/support/bin/timekpr-client.origine stable/support/bin/timekpr-client
---- stable/support/bin/timekpr-client.origine	2014-05-06 07:58:50.000000000 +0200
-+++ stable/support/bin/timekpr-client	2014-10-11 16:06:14.890577636 +0200
-@@ -1 +1 @@
--#!/usr/bin/python /usr/share/pyshared/timekpr/timekpr-client.py
-+#!/usr/bin/python /usr/share/pytimekpr/timekpr-client.py
- 
-diff -up stable/support/bin/timekpr-gui.origine stable/support/bin/timekpr-gui
---- stable/support/bin/timekpr-gui.origine	2014-05-06 07:58:50.000000000 +0200
-+++ stable/support/bin/timekpr-gui	2014-10-11 16:06:25.487702989 +0200
-@@ -1 +1 @@
--#!/usr/bin/python /usr/share/pyshared/timekpr/timekpr-gui.py
-+#!/usr/bin/python /usr/share/pytimekpr/timekpr-gui.py
- 
-diff -up stable/support/bin/timekpr.origine stable/support/bin/timekpr
---- stable/support/bin/timekpr.origine	2014-05-06 07:58:50.000000000 +0200
-+++ stable/support/bin/timekpr	2014-10-11 16:06:02.967436595 +0200
-@@ -1 +1 @@
--#!/usr/bin/python /usr/share/pyshared/timekpr/timekpr.py
-+#!/usr/bin/python /usr/share/pytimekpr/timekpr.py
- 
+diff -ruN stable.orig/support/bin/timekpr stable/support/bin/timekpr
+--- stable.orig/support/bin/timekpr     2018-10-07 01:49:40.435851000 +0300
++++ stable/support/bin/timekpr  2018-10-07 02:22:22.251209297 +0300
+@@ -1,2 +1,2 @@
+ #!/bin/bash
+-/usr/bin/python2 /usr/share/pyshared/timekpr/timekpr.py
++/usr/bin/python2 /usr/share/pytimekpr/timekpr.py
+diff -ruN stable.orig/support/bin/timekpr-client stable/support/bin/timekpr-client
+--- stable.orig/support/bin/timekpr-client      2018-10-07 01:49:40.435851000 +0300
++++ stable/support/bin/timekpr-client   2018-10-07 02:20:52.499601762 +0300
+@@ -1,2 +1,2 @@
+ #!/bin/bash
+-/usr/bin/python2 /usr/share/pyshared/timekpr/timekpr-client.py
++/usr/bin/python2 /usr/share/pytimekpr/timekpr-client.py
+diff -ruN stable.orig/support/bin/timekpr-gui stable/support/bin/timekpr-gui
+--- stable.orig/support/bin/timekpr-gui 2018-10-07 01:49:40.435851000 +0300
++++ stable/support/bin/timekpr-gui      2018-10-07 02:21:47.035363270 +0300
+@@ -1,2 +1,2 @@
+ #!/bin/bash
+-/usr/bin/python2 /usr/share/pyshared/timekpr/timekpr-gui3.py
++/usr/bin/python2 /usr/share/pytimekpr/timekpr-gui3.py
