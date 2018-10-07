@@ -4,9 +4,9 @@
 %global debug_package %{nil}
 
 Name:           timekpr
-# Ubuntu version 0.3.6~ppa1~ubuntu11
-Version:        0.3.6
-Release:        6.3%{?dist}
+# Ubuntu version 0.3.7~ppa1~ubuntu12
+Version:        0.3.7
+Release:        1.2%{?dist}
 Summary:        Keep control of computer usage
 
 Group:    System Environment/Daemons
@@ -16,7 +16,7 @@ URL:      https://launchpad.net/timekpr-revived
 # Use the following command to generate the tar ball:
 # bzr branch lp:~mjasnik/timekpr-revived/stable
 # tar cvzf %{name}-%{version}.tar.gz stable
-Source0:  timekpr-0.3.6.tar.gz
+Source0:  timekpr-0.3.7.tar.gz
 Source1:  timekpr.service
 Source2:  timekpr.postinst
 Source3:  timekpr.postrm
@@ -103,6 +103,7 @@ rm -rf $RPM_BUILD_ROOT
 #Timekpr file
 %__cp src/timekpr.py %{buildroot}%{_datadir}/py%{name}/
 %__cp src/timekpr-gui.py %{buildroot}%{_datadir}/py%{name}/
+%__cp src/timekpr-gui3.py %{buildroot}%{_datadir}/py%{name}/
 %__cp src/timekpr-client.py %{buildroot}%{_datadir}/py%{name}/
 
 %__cp src/common/timekprpam.py %{buildroot}%{_datadir}/py%{name}/
@@ -128,9 +129,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %__cp icons/timekpr.xpm %{buildroot}%{_datadir}/pixmaps/
 
-%__cp src/gui/timekpr.glade %{buildroot}%{_datadir}/%{name}/
 %__cp src/gui/about_dialog.ui %{buildroot}%{_datadir}/%{name}/
 %__cp src/gui/client.ui %{buildroot}%{_datadir}/%{name}/
+%__cp src/gui/main_window.ui %{buildroot}%{_datadir}/%{name}/
+%__cp src/gui/timekpr.glade %{buildroot}%{_datadir}/%{name}/
 
 #PolKit policy
 %__cp %{SOURCE7} %{buildroot}%{_datadir}/polkit-1/actions/
@@ -247,6 +249,10 @@ update-desktop-database &> /dev/null || :
 %{_sysconfdir}/%{name}/timekpr.postrm
 
 %changelog
+* Sun Oct 7 2018 Johan Heikkila <johan.heikkila@gmail.com> - 0.3.7-1.2
+- Updated to latest stable rev. 12
+* Sun Aug 27 2017 Johan Heikkila <johan.heikkila@gmail.com> - 0.3.7-1.1
+- Updated to latest stable
 * Sun Nov 27 2016 johan.heikkila@gmail.com
 - Removed beesu dependence
 * Sun Nov 6 2016 johan.heikkila@gmail.com
