@@ -9,7 +9,13 @@ diff -Naur stable.orig/src/common/timekprpam.py stable/src/common/timekprpam.py
      Warning: Not all Linux-PAM possibilities are supported!
 diff -Naur stable.orig/src/timekpr-client.py stable/src/timekpr-client.py
 --- stable.orig/src/timekpr-client.py	2018-10-07 01:49:40.435851000 +0300
-+++ stable/src/timekpr-client.py	2018-10-07 02:59:56.331580616 +0300
++++ stable/src/timekpr-client.py	2018-10-07 12:25:39.067588788 +0300
+@@ -1,4 +1,4 @@
+-#!/usr/bin/python
++#!/usr/bin/python3
+ 
+ # generic import
+ import gi
 @@ -74,8 +74,8 @@
      path.append('.')
      print("%s: development config" % ("main"))

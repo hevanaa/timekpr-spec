@@ -4,18 +4,18 @@ diff -ruN stable.orig/support/bin/timekpr stable/support/bin/timekpr
 @@ -1,2 +1,2 @@
  #!/bin/bash
 -/usr/bin/python2 /usr/share/pyshared/timekpr/timekpr.py
-+/usr/bin/python2 /usr/share/pytimekpr/timekpr.py
++/usr/bin/python3 /usr/share/pytimekpr/timekpr.py
 diff -ruN stable.orig/support/bin/timekpr-client stable/support/bin/timekpr-client
 --- stable.orig/support/bin/timekpr-client      2018-10-07 01:49:40.435851000 +0300
 +++ stable/support/bin/timekpr-client   2018-10-07 02:20:52.499601762 +0300
 @@ -1,2 +1,2 @@
  #!/bin/bash
 -/usr/bin/python2 /usr/share/pyshared/timekpr/timekpr-client.py
-+/usr/bin/python2 /usr/share/pytimekpr/timekpr-client.py
++/usr/bin/python3 /usr/share/pytimekpr/timekpr-client.py
 diff -ruN stable.orig/support/bin/timekpr-gui stable/support/bin/timekpr-gui
 --- stable.orig/support/bin/timekpr-gui 2018-10-07 01:49:40.435851000 +0300
 +++ stable/support/bin/timekpr-gui      2018-10-07 02:21:47.035363270 +0300
 @@ -1,2 +1,2 @@
  #!/bin/bash
 -/usr/bin/python2 /usr/share/pyshared/timekpr/timekpr-gui3.py
-+/usr/bin/python2 /usr/share/pytimekpr/timekpr-gui3.py
++/usr/bin/python3 /usr/share/pytimekpr/timekpr-gui3.py

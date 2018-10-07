@@ -6,7 +6,7 @@
 Name:           timekpr
 # Ubuntu version 0.3.7~ppa1~ubuntu12
 Version:        0.3.7
-Release:        1.2%{?dist}
+Release:        1.3%{?dist}
 Summary:        Keep control of computer usage
 
 Group:    System Environment/Daemons
@@ -33,16 +33,28 @@ Patch2:         0003-timekpr-pythondir.patch
 Patch3:         0004-timekpr-pythonfix.patch
 Patch4:         0005-timekpr-cleanup-users-list.patch
 
-BuildRequires:  python-devel
+%if 0%{?fedora}
+BuildRequires:  python3-devel
+%endif
+%if 0%{?rhel}
+BuildRequires:	python34-devel
+%endif
 BuildRequires:  desktop-file-utils
 BuildRequires:  gettext
 BuildRequires:  libappstream-glib
 BuildRequires:  systemd
 
-Requires:       python
-Requires:       pygtk2-libglade
-Requires:       dbus-python
-Requires:       notify-python
+Requires:       libnotify
+%if 0%{?fedora}
+Requires:	python3
+Requires:       python3-dbus
+Requires:       python3-gobject
+%endif
+%if 0%{?rhel}
+Requires:	python34
+Requires:       python34-dbus
+Requires:       python34-gobject
+%endif
 
 Requires(post): systemd
 Requires(post): sed
@@ -249,6 +261,8 @@ update-desktop-database &> /dev/null || :
 %{_sysconfdir}/%{name}/timekpr.postrm
 
 %changelog
+* Sun Oct 7 2018 Johan Heikkila <johan.heikkila@gmail.com> - 0.3.7-1.3
+- Fixed dependencies
 * Sun Oct 7 2018 Johan Heikkila <johan.heikkila@gmail.com> - 0.3.7-1.2
 - Updated to latest stable rev. 12
 * Sun Aug 27 2017 Johan Heikkila <johan.heikkila@gmail.com> - 0.3.7-1.1
