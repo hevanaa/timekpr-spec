@@ -6,7 +6,7 @@
 Name:           timekpr
 # Ubuntu version 0.3.7~ppa1~ubuntu12
 Version:        0.3.7
-Release:        1.3%{?dist}
+Release:        1.4%{?dist}
 Summary:        Keep control of computer usage
 
 Group:    System Environment/Daemons
@@ -31,7 +31,6 @@ Patch0:         0001-timekpr.desktop.patch
 Patch1:         0002-timekpr-client.desktop.patch
 Patch2:         0003-timekpr-pythondir.patch
 Patch3:         0004-timekpr-pythonfix.patch
-Patch4:         0005-timekpr-cleanup-users-list.patch
 
 %if 0%{?fedora}
 BuildRequires:  python3-devel
@@ -78,7 +77,6 @@ https://bugs.launchpad.net/timekpr-revived/+bugs
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
-%patch4 -p1
 
 %build
 # Remove CFLAGS=... for noarch packages (unneeded)
@@ -261,10 +259,12 @@ update-desktop-database &> /dev/null || :
 %{_sysconfdir}/%{name}/timekpr.postrm
 
 %changelog
+* Sat Nov 24 2018 Johan Heikkila <johan.heikkila@gmail.com> - 0.3.7-1.4
+- Updated to latest stable rev. 33
 * Sun Oct 7 2018 Johan Heikkila <johan.heikkila@gmail.com> - 0.3.7-1.3
 - Fixed dependencies
 * Sun Oct 7 2018 Johan Heikkila <johan.heikkila@gmail.com> - 0.3.7-1.2
-- Updated to latest stable rev. 12
+- Updated to latest stable
 * Sun Aug 27 2017 Johan Heikkila <johan.heikkila@gmail.com> - 0.3.7-1.1
 - Updated to latest stable
 * Sun Nov 27 2016 johan.heikkila@gmail.com

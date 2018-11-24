@@ -13,10 +13,10 @@ diff -Naur stable.orig/src/timekpr-client.py stable/src/timekpr-client.py
 @@ -1,4 +1,4 @@
 -#!/usr/bin/python
 +#!/usr/bin/python3
+ # -*- coding: utf-8 -*-
  
  # generic import
- import gi
-@@ -74,8 +74,8 @@
+@@ -75,8 +75,8 @@
      path.append('.')
      print("%s: development config" % ("main"))
  
