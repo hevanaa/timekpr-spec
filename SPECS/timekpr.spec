@@ -1,12 +1,12 @@
 # sitelib for noarch packages, sitearch for others (remove the unneeded one)
-#%{!?python_sitelib: %global python_sitelib %(%{__python} -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())")}
-#%{!?python_sitearch: %global python_sitearch %(%{__python} -c "from distutils.sysconfig import get_python_lib; print(get_python_lib(1))")}
+#%{!?python3_sitelib: %global python3_sitelib %(%{__python3} -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())")}
+#%{!?python3_sitearch: %global python3_sitearch %(%{__python3} -c "from distutils.sysconfig import get_python_lib; print(get_python_lib(1))")}
 %global debug_package %{nil}
 
 Name:           timekpr
 # Ubuntu version 0.3.7~ppa1~ubuntu12
 Version:        0.3.7
-Release:        1.4%{?dist}
+Release:        2%{?dist}
 Summary:        Keep control of computer usage
 
 Group:    System Environment/Daemons
@@ -32,28 +32,16 @@ Patch1:         0002-timekpr-client.desktop.patch
 Patch2:         0003-timekpr-pythondir.patch
 Patch3:         0004-timekpr-pythonfix.patch
 
-%if 0%{?fedora}
 BuildRequires:  python3-devel
-%endif
-%if 0%{?rhel}
-BuildRequires:	python34-devel
-%endif
 BuildRequires:  desktop-file-utils
 BuildRequires:  gettext
 BuildRequires:  libappstream-glib
 BuildRequires:  systemd
 
 Requires:       libnotify
-%if 0%{?fedora}
 Requires:	python3
 Requires:       python3-dbus
 Requires:       python3-gobject
-%endif
-%if 0%{?rhel}
-Requires:	python34
-Requires:       python34-dbus
-Requires:       python34-gobject
-%endif
 
 Requires(post): systemd
 Requires(post): sed
@@ -80,12 +68,12 @@ https://bugs.launchpad.net/timekpr-revived/+bugs
 
 %build
 # Remove CFLAGS=... for noarch packages (unneeded)
-#CFLAGS="$RPM_OPT_FLAGS" %{__python} setup.py build
+#CFLAGS="$RPM_OPT_FLAGS" %{__python3} setup.py build
 
 
 %install
 rm -rf $RPM_BUILD_ROOT
-#%{__python} setup.py install -O1 --skip-build --root $RPM_BUILD_ROOT
+#%{__python3} setup.py install -O1 --skip-build --root $RPM_BUILD_ROOT
 
 #Initial mkdirs
 
@@ -259,6 +247,8 @@ update-desktop-database &> /dev/null || :
 %{_sysconfdir}/%{name}/timekpr.postrm
 
 %changelog
+* Sat Oct 31 2020 Johan Heikkila <johan.heikkila@gmail.com> - 0.3.7-2
+- Use %__python3
 * Sat Nov 24 2018 Johan Heikkila <johan.heikkila@gmail.com> - 0.3.7-1.4
 - Updated to latest stable rev. 33
 * Sun Oct 7 2018 Johan Heikkila <johan.heikkila@gmail.com> - 0.3.7-1.3
